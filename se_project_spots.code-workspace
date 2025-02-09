@@ -1,14 +1,10 @@
 {
   "folders": [
-	{
-		"name": "se_project_spots",
-		"path": "."
-	},
-	{
-		"name": "vendor",
-		"path": "../se_project_coffeeshop/vendor"
-	}
-],
+    {
+      "name": "se_project_spots",
+      "path": "."
+    }
+  ],
   "settings": {
     "liveServer.settings.multiRootWorkspaceName": "se_project_spots"
   }
