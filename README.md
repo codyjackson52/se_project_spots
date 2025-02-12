@@ -1,21 +1,33 @@
-# Project 3: Spots
+# Description
 
-### Overview  
+This project is designed to ensure all elements are displayed correctly on popular screen sizes using responsive design techniques. Given its complexity, we recommend investing extra time to complete it, as it is more challenging than previous projects.
 
-* Intro  
-* Figma  
-* Images  
-  
-**Intro**
-  
-This project is made so all the elements are displayed correctly on popular screen sizes. We recommend investing more time in completing this project, since it's more difficult than previous ones.  
-  
-**Figma**  
-  
-* [Link to the project on Figma](https://www.figma.com/file/BBNm2bC3lj8QQMHlnqRsga/Sprint-3-Project-%E2%80%94-Spots?type=design&node-id=2%3A60&mode=design&t=afgNFybdorZO6cQo-1)
-  
-**Images**  
-  
-The way you'll do this at work is by exporting images directly from Figma — we recommend doing that to practice more. Don't forget to optimize them [here](https://tinypng.com/), so your project loads faster. 
-  
-Good luck and have fun!
+## Features
+
+- Fully responsive layout
+- Optimized for different screen sizes
+- Clean and structured CSS
+- Figma-based design implementation
+
+## Tech Stack
+
+- Figma - Design reference
+- HTML - Structure and layout
+- CSS - Styling and responsiveness
+- GitHub Pages - Deployment
+
+## Deployment
+
+This project is deployed on GitHub Pages. You can view it here:
+
+🔗 Live Demo (Add your GitHub Pages link here)
+
+📌 Figma Design Reference:
+🔗 Sprint 3 Project — Spots
+
+## Learning Outcomes
+
+Understanding responsive design principles
+Implementing CSS Grid & Flexbox
+Structuring CSS for maintainability
+Using Figma for design reference

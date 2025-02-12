@@ -1,0 +1,12 @@
+.footer {
+  text-align: center;
+  font-size: 16px;
+  font-family: Poppins, sans-serif;
+  color: #212121;
+  padding: 20px 0;
+  background-color: transparent;
+  width: 100%;
+  margin-top: auto;
+  opacity: 70%;
+  border-top: 1px rgb(33, 33, 33, 0.4) solid;
+}
