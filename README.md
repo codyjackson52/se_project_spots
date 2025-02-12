@@ -20,7 +20,7 @@ This project is designed to ensure all elements are displayed correctly on popul
 
 This project is deployed on GitHub Pages. You can view it here:
 
-🔗 Live Demo (Add your GitHub Pages link here)
+🔗 Live Demo: https://codyjackson52.github.io/se_project_spots/
 
 📌 Figma Design Reference:
 🔗 Sprint 3 Project — Spots
