@@ -12,26 +12,39 @@
   color: #212121;
   font-size: 20px;
   line-height: 24px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 100%;
 }
 
 .card__content {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 0;
+  padding: 12px 0;
 }
 
 .card__like-button {
-  background-image: url(../images/Like-Icon.svg);
+  background-image: url(../images/like-icon-dark.svg);
   width: 23px;
   height: 20px;
   border: none;
   background-color: transparent;
   opacity: 40%;
+  cursor: pointer;
+}
+
+.card__like-button:hover {
+  opacity: 100%;
+  transition: opacity 0.3s ease;
 }
 
 @media screen and (max-width: 627px) {
   .card__image {
     height: 288px;
+  }
+  .card__title {
+    max-width: 250px;
   }
 }
