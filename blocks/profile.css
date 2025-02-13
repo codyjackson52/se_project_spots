@@ -9,6 +9,7 @@
   height: 190px;
   width: 190px;
   object-fit: cover;
+  border-radius: 8px;
 }
 
 .profile__column {
