@@ -71,6 +71,11 @@
   opacity: 40%;
 }
 
+.modal__input:hover {
+  color: #212121;
+  cursor: pointer;
+}
+
 .modal__submit-btn {
   width: 156px;
   padding: 18px 0;

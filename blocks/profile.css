@@ -72,6 +72,7 @@
 .profile__edit-btn:hover {
   color: #212121;
   opacity: 100%;
+  cursor: pointer;
 }
 
 .profile__edit-icon {
