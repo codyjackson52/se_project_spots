@@ -12,10 +12,13 @@
   padding: 0 16px;
   visibility: hidden;
   font-family: Poppins, Arial, Helvetica, sans-serif;
+  opacity: 0;
+  transition: visibility 0.3s, opacity 0.3s linear;
 }
 
 .modal_opened {
   visibility: visible;
+  opacity: 1;
 }
 
 .modal__content {
