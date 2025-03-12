@@ -45,17 +45,19 @@ const cardForm = cardModal.querySelector(".modal__form");
 const cardModalCloseBtn = cardModal.querySelector(".modal__close-btn");
 const CardNameInput = cardModal.querySelector("#add-card-name-input");
 const CardLinkInput = cardModal.querySelector("#add-card-link-input");
+const previewModal = document.querySelector("#preview-modal");
+const previewModalCloseBtn = previewModal.querySelector(".modal__close");
 
 //card related elements
 const cardTemplate = document.querySelector("#card-template");
 const cardList = document.querySelector(".cards__list");
 
 function openModal(modal) {
-  modal.classList.add("modal__opened");
+  modal.classList.add("modal_opened");
 }
 
 function closeModal(modal) {
-  modal.classList.remove("modal__opened");
+  modal.classList.remove("modal_opened");
 }
 //this could be hanle edit profil not sure double check
 function handleEditFormSubmit(evt) {
@@ -80,9 +82,8 @@ function getCardElement(data) {
 
   const cardNameEl = cardElement.querySelector(".card__title");
   const cardImageEl = cardElement.querySelector(".card__image");
-  const cardLikeBtn = cardElement.querySelector(".card__like-button");
   const cardDeleteBtn = cardElement.querySelector(".card__delete-button");
-  //TO DO - select the delete button
+  const cardLikeBtn = cardElement.querySelector(".card__like-button");
 
   cardNameEl.textContent = data.name;
   cardImageEl.src = data.link;
@@ -92,13 +93,18 @@ function getCardElement(data) {
     cardLikeBtn.classList.toggle("card__like-button_liked");
   });
 
-  //TO DO - set the listenr on delete button
+  cardImageEl.addEventListener("click", () => {
+    openModal(previewModal);
+    const modalImage = previewModal.querySelector(".modal__image");
+    const modalCaption = previewModal.querySelector(".modal__caption");
+    modalImage.src = cardImageEl.src;
+    modalCaption.textContent = data.name;
+  });
+
   cardDeleteBtn.addEventListener("click", () => {
     const cardElement = cardDeleteBtn.closest(".card");
     cardElement.remove();
   });
-  // The handler should remove the card from the DOM (basics of DOM Sprint 4)
-  // Style the delection
 
   return cardElement;
 }
@@ -120,9 +126,11 @@ cardEditButton.addEventListener("click", () => {
 cardModalCloseBtn.addEventListener("click", () => {
   closeModal(cardModal);
 });
-
 editFormElement.addEventListener("submit", handleEditFormSubmit);
 cardForm.addEventListener("submit", handleAddCardSubmit);
+previewModalCloseBtn.addEventListener("click", () => {
+  closeModal(previewModal);
+});
 
 initialCards.forEach((item) => {
   const cardElement = getCardElement(item);

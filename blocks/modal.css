@@ -14,7 +14,7 @@
   font-family: Poppins, Arial, Helvetica, sans-serif;
 }
 
-.modal__opened {
+.modal_opened {
   visibility: visible;
 }
 
@@ -30,35 +30,66 @@
 
 .modal__content_type_preview {
   padding: 0;
+  background: transparent;
+  width: unset;
+  max-width: unset;
 }
 
 .modal__image {
-  width: 100%;
+  max-width: 80vw;
+  max-height: 80vh;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.modal__caption {
+  background-color: #212121;
+  color: #fff;
+  font-family: Poppins, Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  line-height: 120%;
+  font-weight: 500;
+  padding: 4px 8px;
+  border-radius: 8px;
+  width: fit-content;
+  height: fit-content;
 }
 
 .modal__close {
+  width: 40px;
+  height: 40px;
+
   position: absolute;
   top: 32px;
   right: 50px;
-  width: 40px;
-  height: 40px;
+
   opacity: 40%;
   display: flex;
   align-items: center;
   justify-content: center;
   background: transparent;
   border: none;
+  cursor: pointer;
 }
 
 .modal__close_type_preview {
   background-image: url(../images/modal-close-icon.svg);
   top: 0;
-  right: -12.5px;
+  right: -52.5px;
 }
 
-.modal__close-btn:hover {
+.modal__close:hover {
   color: #212121;
   opacity: 100%;
+}
+
+.modal__close-btn {
+  position: absolute;
+  top: 32px;
+  right: 50px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
 }
 
 .modal__close-btn img {
