@@ -25,10 +25,13 @@ const initialCards = [
   },
 ];
 
+//Profile elements
 const profileEditButton = document.querySelector(".profile__edit-btn");
+const cardEditButton = document.querySelector(".profile__add-btn");
 const profileName = document.querySelector(".profile__name");
 const profileDescription = document.querySelector(".profile__description");
 
+//Form Elements
 const editModal = document.querySelector("#edit-modal");
 const editFormElement = editModal.querySelector(".modal__form");
 const editModalCloseBtn = editModal.querySelector(".modal__close-btn");
@@ -37,8 +40,38 @@ const editModalDescriptionInput = editModal.querySelector(
   "#profile-description-input"
 );
 
+const cardModal = document.querySelector("#add-card-modal");
+const cardForm = cardModal.querySelector(".modal__form");
+const cardModalCloseBtn = cardModal.querySelector(".modal__close-btn");
+const CardNameInput = cardModal.querySelector("#add-card-name-input");
+const CardLinkInput = cardModal.querySelector("#add-card-link-input");
+
+//card related elements
 const cardTemplate = document.querySelector("#card-template");
 const cardList = document.querySelector(".cards__list");
+
+function openModal(modal) {
+  modal.classList.add("modal__opened");
+}
+
+function closeModal(modal) {
+  modal.classList.remove("modal__opened");
+}
+//this could be hanle edit profil not sure double check
+function handleEditFormSubmit(evt) {
+  evt.preventDefault();
+  profileName.textContent = editModalNameInput.value;
+  profileDescription.textContent = editModalDescriptionInput.value;
+  closeModal(editModal);
+}
+
+function handleAddCardSubmit(evt) {
+  evt.preventDefault();
+  const inputValues = { name: CardNameInput.value, link: CardLinkInput.value };
+  const cardEl = getCardElement(inputValues);
+  cardList.prepend(cardEl);
+  closeModal(cardModal);
+}
 
 function getCardElement(data) {
   const cardElement = cardTemplate.content
@@ -47,35 +80,51 @@ function getCardElement(data) {
 
   const cardNameEl = cardElement.querySelector(".card__title");
   const cardImageEl = cardElement.querySelector(".card__image");
+  const cardLikeBtn = cardElement.querySelector(".card__like-button");
+  const cardDeleteBtn = cardElement.querySelector(".card__delete-button");
+  //TO DO - select the delete button
 
   cardNameEl.textContent = data.name;
   cardImageEl.src = data.link;
   cardImageEl.alt = data.name;
 
+  cardLikeBtn.addEventListener("click", () => {
+    cardLikeBtn.classList.toggle("card__like-button_liked");
+  });
+
+  //TO DO - set the listenr on delete button
+  cardDeleteBtn.addEventListener("click", () => {
+    const cardElement = cardDeleteBtn.closest(".card");
+    cardElement.remove();
+  });
+  // The handler should remove the card from the DOM (basics of DOM Sprint 4)
+  // Style the delection
+
   return cardElement;
 }
 
-function openModal() {
+profileEditButton.addEventListener("click", () => {
   editModalNameInput.value = profileName.textContent;
   editModalDescriptionInput.value = profileDescription.textContent;
-  editModal.classList.add("modal_opened");
-}
+  openModal(editModal);
+});
 
-function closeModal() {
-  editModal.classList.remove("modal_opened");
-}
-function handleEditFormSubmit(evt) {
-  evt.preventDefault();
-  profileName.textContent = editModalNameInput.value;
-  profileDescription.textContent = editModalDescriptionInput.value;
-  closeModal();
-}
+editModalCloseBtn.addEventListener("click", () => {
+  closeModal(editModal);
+});
 
-profileEditButton.addEventListener("click", openModal);
-editModalCloseBtn.addEventListener("click", closeModal);
+cardEditButton.addEventListener("click", () => {
+  openModal(cardModal);
+});
+
+cardModalCloseBtn.addEventListener("click", () => {
+  closeModal(cardModal);
+});
+
 editFormElement.addEventListener("submit", handleEditFormSubmit);
+cardForm.addEventListener("submit", handleAddCardSubmit);
 
-for (let i = 0; i < initialCards.length; i++) {
-  const cardElement = getCardElement(initialCards[i]);
-  cardList.prepend(cardElement);
-}
+initialCards.forEach((item) => {
+  const cardElement = getCardElement(item);
+  cardList.append(cardElement);
+});

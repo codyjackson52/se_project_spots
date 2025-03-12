@@ -14,11 +14,11 @@
   font-family: Poppins, Arial, Helvetica, sans-serif;
 }
 
-.modal_opened {
+.modal__opened {
   visibility: visible;
 }
 
-.modal__container {
+.modal__content {
   background: #fff;
   padding: 32px 50px;
   max-width: 730px;
@@ -28,19 +28,32 @@
   border-radius: 8px;
 }
 
-.modal__close-btn {
+.modal__content_type_preview {
+  padding: 0;
+}
+
+.modal__image {
+  width: 100%;
+}
+
+.modal__close {
   position: absolute;
   top: 32px;
   right: 50px;
   width: 40px;
   height: 40px;
   opacity: 40%;
-
   display: flex;
   align-items: center;
   justify-content: center;
   background: transparent;
   border: none;
+}
+
+.modal__close_type_preview {
+  background-image: url(../images/modal-close-icon.svg);
+  top: 0;
+  right: -12.5px;
 }
 
 .modal__close-btn:hover {
@@ -98,6 +111,7 @@
   line-height: 16px;
   font-weight: 500;
   border-radius: 8px;
+  transition: background 0.3s;
 }
 
 .modal__submit-btn:hover {
@@ -111,7 +125,7 @@
     padding: 0 10px;
   }
 
-  .modal__container {
+  .modal__content {
     padding: 12px;
   }
 
