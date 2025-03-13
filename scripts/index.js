@@ -25,9 +25,7 @@ const initialCards = [
   },
 ];
 
-const closeButtons = document.querySelectorAll(
-  ".modal__close, .modal__close-btn"
-);
+const closeButtons = document.querySelectorAll(".modal__close-btn");
 closeButtons.forEach((button) => {
   const popup = button.closest(".modal");
   button.addEventListener("click", () => closeModal(popup));
@@ -47,8 +45,8 @@ const editModalDescriptionInput = editModal.querySelector(
 
 const cardModal = document.querySelector("#add-card-modal");
 const cardForm = cardModal.querySelector(".modal__form");
-const CardNameInput = cardModal.querySelector("#add-card-name-input");
-const CardLinkInput = cardModal.querySelector("#add-card-link-input");
+const cardnameInput = cardModal.querySelector("#add-card-name-input");
+const cardlinkInput = cardModal.querySelector("#add-card-link-input");
 const previewModal = document.querySelector("#preview-modal");
 const modalImage = previewModal.querySelector(".modal__image");
 const modalCaption = previewModal.querySelector(".modal__caption");
