@@ -45,6 +45,7 @@
   max-height: 80vh;
   object-fit: contain;
   border-radius: 8px;
+  overflow: hidden;
 }
 
 .modal__caption {
@@ -155,13 +156,14 @@
 
   .modal__image {
     width: 100%;
-    max-width: 320px;
-    height: auto;
-    object-fit: contain;
+    max-width: none;
+    max-height: none;
+    margin: 0;
+    padding: 0;
   }
 
   .modal__content {
-    padding: 12px;
+    padding: 7px;
   }
 
   .modal__title {
@@ -180,5 +182,10 @@
 
   .modal__submit-btn {
     width: 100%;
+  }
+
+  .modal__close-btn_type_preview {
+    top: -30px;
+    right: 0;
   }
 }
