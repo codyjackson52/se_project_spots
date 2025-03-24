@@ -1,3 +1,5 @@
+// TO DO pass setting object to the validaction functions that are called in this file
+
 const initialCards = [
   {
     name: "Val Thorens ",
@@ -45,6 +47,7 @@ const editModalDescriptionInput = editModal.querySelector(
 
 const cardModal = document.querySelector("#add-card-modal");
 const cardForm = cardModal.querySelector(".modal__form");
+const cardSubmitBtn = cardModal.querySelector(".modal__submit-btn");
 const cardnameInput = cardModal.querySelector("#add-card-name-input");
 const cardlinkInput = cardModal.querySelector("#add-card-link-input");
 const previewModal = document.querySelector("#preview-modal");
@@ -75,6 +78,7 @@ function handleAddCardSubmit(evt) {
   const cardEl = getCardElement(inputValues);
   cardList.prepend(cardEl);
   evt.target.reset();
+  disableButton(cardSubmitBtn, settings); // added settings to pass arugment may have to do this again
   closeModal(cardModal);
 }
 
@@ -112,6 +116,12 @@ function getCardElement(data) {
 profileEditButton.addEventListener("click", () => {
   editModalNameInput.value = profileName.textContent;
   editModalDescriptionInput.value = profileDescription.textContent;
+  // Optional
+  resetValidation(
+    editFormElement,
+    [editModalNameInput, editModalDescriptionInput],
+    settings
+  );
   openModal(editModal);
 });
 

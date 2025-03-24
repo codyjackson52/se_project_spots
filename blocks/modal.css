@@ -130,6 +130,26 @@
   border-color: #212121;
 }
 
+.modal__input_type_error {
+  border: 1px solid rgba(255, 0, 0, 0.6);
+  /* style this class hover isnt listed */
+}
+
+.modal__error {
+  display: block;
+  /* correct color and font sizes */
+  color: red;
+}
+
+.modal__error_visible {
+  display: block;
+  font-size: 12px;
+  line-height: 1.2;
+  margin-top: -24px;
+  margin-bottom: 16px;
+  color: red;
+}
+
 .modal__submit-btn {
   width: 156px;
   padding: 18px 0;
@@ -147,6 +167,16 @@
   background-color: rgba(0, 0, 0, 0.8);
   cursor: pointer;
   border-color: #212121;
+}
+
+.modal__submit-btn_disabled {
+  background-color: #212121;
+  color: #fff;
+  opacity: 0.5;
+  cursor: not-allowed;
+  padding: 18px 32px;
+  border-radius: 8px;
+  border: none;
 }
 
 @media screen and (max-width: 627px) {
