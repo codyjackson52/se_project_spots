@@ -155,3 +155,14 @@ initialCards.forEach((item) => {
     }
   });
 });
+
+import { enableValidation } from "../scripts/validation.js"; // make sure extension is added if needed!
+
+enableValidation({
+  formSelector: ".form",
+  inputSelector: ".form__input",
+  submitButtonSelector: ".modal__submit-btn",
+  inactiveButtonClass: "modal__submit-btn_disabled",
+  inputErrorClass: "modal__input_type_error",
+  errorClass: "modal__error_visible",
+});
