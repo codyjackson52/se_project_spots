@@ -2,7 +2,6 @@ import "../pages/index.css";
 import { enableValidation } from "../scripts/validate.js";
 import Api from "../utils/Api.js";
 
-// ======= Constants =======
 const validationConfig = {
   formSelector: ".modal__form",
   inputSelector: ".modal__input",
@@ -15,7 +14,6 @@ const validationConfig = {
 let selectedCard = null;
 let selectedCardId = null;
 
-// ======= API Setup =======
 const api = new Api({
   baseUrl: "https://around-api.en.tripleten-services.com/v1",
   headers: {
@@ -24,7 +22,6 @@ const api = new Api({
   },
 });
 
-// ======= DOM Elements =======
 const profileEditButton = document.querySelector(".profile__edit-btn");
 const cardEditButton = document.querySelector(".profile__add-btn");
 const profileNameEl = document.querySelector(".profile__name");
@@ -56,7 +53,6 @@ const avatarInput = avatarForm.querySelector("#profile-avatar-input");
 const deleteModal = document.querySelector("#delete-modal");
 const deleteForm = deleteModal.querySelector("#delete-form");
 
-// ======= Modals =======
 function openModal(modal) {
   modal.classList.add("modal_opened");
   document.addEventListener("keydown", handleEscClose);
@@ -87,7 +83,6 @@ document.querySelectorAll(".modal__close-btn, .modal__close").forEach((btn) => {
   }
 );
 
-// ======= Card Renderer =======
 function getCardElement(data) {
   const cardElement = cardTemplate.content
     .querySelector(".card")
@@ -125,7 +120,6 @@ function getCardElement(data) {
   return cardElement;
 }
 
-// ======= Form Handlers =======
 function handleEditProfileSubmit(evt) {
   evt.preventDefault();
   const submitBtn = evt.submitter;
@@ -203,7 +197,6 @@ function handleDeleteSubmit(evt) {
     });
 }
 
-// ======= Event Listeners =======
 editForm.addEventListener("submit", handleEditProfileSubmit);
 cardForm.addEventListener("submit", handleCardSubmit);
 avatarForm.addEventListener("submit", handleAvatarSubmit);
@@ -219,7 +212,6 @@ cardEditButton.addEventListener("click", () => openModal(cardModal));
 avatarImage.addEventListener("click", () => openModal(avatarModal));
 avatarBtn.addEventListener("click", () => openModal(avatarModal));
 
-// ======= Load Data =======
 Promise.all([api.getUserInfo(), api.getInitialCards()])
   .then(([user, cards]) => {
     profileNameEl.textContent = user.name;
@@ -229,5 +221,4 @@ Promise.all([api.getUserInfo(), api.getInitialCards()])
   })
   .catch(console.error);
 
-// ======= Validation =======
 enableValidation(validationConfig);

@@ -11,14 +11,12 @@ class Api {
     return Promise.reject(`Error: ${res.status}`);
   }
 
-  // ✅ Get all cards
   getInitialCards() {
     return fetch(`${this._baseUrl}/cards`, {
       headers: this._headers,
     }).then(this._checkResponse);
   }
 
-  // ✅ Get user info
   getUserInfo() {
     return fetch(`${this._baseUrl}/users/me`, {
       headers: this._headers,
@@ -51,7 +49,6 @@ class Api {
     }).then(this._checkResponse);
   }
 
-  // ✅ Toggle like status
   changeLikeStatus(cardId, isLiked) {
     return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
       method: isLiked ? "DELETE" : "PUT",
@@ -59,7 +56,6 @@ class Api {
     }).then(this._checkResponse);
   }
 
-  // ✅ Update profile avatar
   updateAvatar(avatarUrl) {
     return fetch(`${this._baseUrl}/users/me/avatar`, {
       method: "PATCH",
