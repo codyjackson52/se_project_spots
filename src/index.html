@@ -20,13 +20,21 @@
           class="header__logo"
         />
       </header>
+
       <main class="content">
         <section class="profile page__section">
-          <img
-            src="<%= require('./images/avatar.jpg') %>"
-            alt="Bessie Coleman"
-            class="profile__avatar"
-          />
+          <div class="profile__avatar-container">
+            <img
+              src="<%= require('./images/avatar.jpg') %>"
+              alt="Bessie Coleman"
+              class="profile__avatar"
+            />
+            <button
+              type="button"
+              class="profile__avatar-edit-btn"
+              aria-label="Edit Avatar"
+            ></button>
+          </div>
           <div class="profile__column">
             <h1 class="profile__name">Bessie Coleman</h1>
             <p class="profile__description">Civil Aviator</p>
@@ -35,14 +43,16 @@
                 src="<%= require('./images/pencil.svg') %>"
                 alt="Pencil Icon"
                 class="profile__edit-icon"
-              />Edit Profile
+              />
+              Edit Profile
             </button>
           </div>
           <button type="button" class="profile__add-btn">
-            <img src="<%= require('./images/plus.svg') %>" alt="Plus icon" />New
-            Post
+            <img src="<%= require('./images/plus.svg') %>" alt="Plus icon" />
+            New Post
           </button>
         </section>
+
         <section class="cards page__section">
           <ul class="cards__list">
             <template id="card-template">
@@ -58,11 +68,12 @@
           </ul>
         </section>
       </main>
+
       <footer class="footer page__section">
         <p class="footer__text">2025&copy;Spots</p>
       </footer>
 
-      <!-- Edit Modal -->
+      <!-- Edit Profile Modal -->
       <div class="modal" id="edit-modal">
         <div class="modal__content">
           <button type="button" class="modal__close-btn">
@@ -174,6 +185,52 @@
           <img class="modal__image" src="" alt="" />
           <p class="modal__caption">Val Thorens</p>
         </div>
+      </div>
+
+      <!-- Avatar Modal -->
+      <div class="modal" id="avatar-modal">
+        <div class="modal__content">
+          <button type="button" class="modal__close-btn">
+            <img
+              src="<%= require('./images/Close-x.svg') %>"
+              alt="Close icon"
+              class="modal__close-icon"
+            />
+          </button>
+          <h3 class="modal__title">Edit avatar</h3>
+          <form class="modal__form" id="edit-avatar-form" novalidate>
+            <label class="modal__label" for="profile-avatar-input">
+              Avatar
+              <input
+                id="profile-avatar-input"
+                class="modal__input"
+                name="avatar"
+                placeholder="Avatar URL goes here"
+                type="url"
+                required
+              />
+            </label>
+            <span class="modal__error" id="profile-avatar-input-error"></span>
+            <button type="submit" class="modal__submit-btn">Save</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="modal" id="delete-modal">
+      <div class="modal__content">
+        <button aria-label="Close modal" class="modal__close-btn" type="button">
+          <img
+            src="<%= require('./images/Close-x.svg') %>"
+            alt="Close icon"
+            class="modal__close-icon"
+          />
+        </button>
+        <h3 class="modal__title">Are you sure?</h3>
+        <form class="modal__form" id="delete-form">
+          <button type="submit" class="modal__submit-btn modal__button">
+            Yes
+          </button>
+        </form>
       </div>
     </div>
   </body>
