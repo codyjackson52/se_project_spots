@@ -5,12 +5,12 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
   entry: {
-    main: "./src/pages/index.js", // ✅ updated entry path
+    main: "./src/pages/index.js",
   },
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "main.js",
-    publicPath: "", // ✅ leave empty string
+    publicPath: "",
   },
 
   mode: "development",
@@ -31,7 +31,7 @@ module.exports = {
       {
         test: /\.js$/,
         loader: "babel-loader",
-        exclude: /node_modules/, // ✅ fix: remove quotes
+        exclude: /node_modules/,
       },
       {
         test: /\.css$/,
@@ -39,9 +39,9 @@ module.exports = {
           MiniCssExtractPlugin.loader,
           {
             loader: "css-loader",
-            options: { importLoaders: 1 }, // ✅ needed for PostCSS
+            options: { importLoaders: 1 },
           },
-          "postcss-loader", // ✅ minification + autoprefixing
+          "postcss-loader",
         ],
       },
       {
@@ -53,8 +53,8 @@ module.exports = {
 
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./src/index.html", // ✅ correct HTML template
-      favicon: "./src/images/favicon.ico", // ✅ favicon path
+      template: "./src/index.html",
+      favicon: "./src/images/favicon.ico",
     }),
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin(),
