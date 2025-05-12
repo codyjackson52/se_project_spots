@@ -23,7 +23,6 @@ class Api {
     }).then(this._checkResponse);
   }
 
-  // ✅ Update user info (name + about)
   editUserInfo({ name, about }) {
     return fetch(`${this._baseUrl}/users/me`, {
       method: "PATCH",
@@ -32,7 +31,6 @@ class Api {
     }).then(this._checkResponse);
   }
 
-  // ✅ Add new card
   addCard({ name, link }) {
     return fetch(`${this._baseUrl}/cards`, {
       method: "POST",
@@ -41,7 +39,6 @@ class Api {
     }).then(this._checkResponse);
   }
 
-  // ✅ Delete card by ID
   deleteCard(cardId) {
     return fetch(`${this._baseUrl}/cards/${cardId}`, {
       method: "DELETE",

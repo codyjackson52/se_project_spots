@@ -50,20 +50,15 @@ const avatarSubmitBtn = avatarForm.querySelector(".modal__submit-btn");
 const deleteModal = document.querySelector("#delete-modal");
 const deleteForm = deleteModal.querySelector("#delete-form");
 const deleteSubmitBtn = deleteForm.querySelector(".modal__submit-btn");
+const cancelBtn = document.querySelector(".modal__cancel-btn");
+cancelBtn.addEventListener("click", () => closeModal(deleteModal));
 
-// Load user info and cards
-api
-  .getUserInfo()
-  .then((data) => {
-    profileName.textContent = data.name;
-    profileDescription.textContent = data.about;
-    avatarImage.src = data.avatar;
-  })
-  .catch(console.error);
+Promise.all([api.getUserInfo(), api.getInitialCards()])
+  .then(([userData, cards]) => {
+    profileName.textContent = userData.name;
+    profileDescription.textContent = userData.about;
+    avatarImage.src = userData.avatar;
 
-api
-  .getInitialCards()
-  .then((cards) => {
     cards.forEach((cardData) => {
       const card = getCardElement(cardData);
       cardList.prepend(card);

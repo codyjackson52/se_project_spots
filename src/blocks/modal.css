@@ -78,6 +78,49 @@
   cursor: pointer;
 }
 
+.modal__button-group {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 32px;
+}
+
+.modal__button-delete {
+  width: 156px;
+  padding: 18px 32px;
+  background-color: #ff6565;
+  color: #fff;
+  font-family: Poppins, Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 1;
+  font-weight: 500;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.modal__button-delete:hover {
+  opacity: 0.8;
+}
+
+.modal__button-cancel {
+  width: 156px;
+  padding: 18px 32px;
+  background-color: #ffffff;
+  color: #212121;
+  font-family: Poppins, Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 1;
+  font-weight: 500;
+  border: 1px solid #212121;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.modal__button-cancel:hover {
+  opacity: 0.8;
+}
+
 .modal__close-btn_type_preview {
   background-image: url(../images/modal-close-icon.svg);
   top: 0;
@@ -132,12 +175,10 @@
 
 .modal__input_type_error {
   border: 1px solid rgba(255, 0, 0, 0.6);
-  /* style this class hover isnt listed */
 }
 
 .modal__error {
   display: block;
-  /* correct color and font sizes */
   color: red;
 }
 

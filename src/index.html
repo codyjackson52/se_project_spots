@@ -73,7 +73,6 @@
         <p class="footer__text">2025&copy;Spots</p>
       </footer>
 
-      <!-- Edit Profile Modal -->
       <div class="modal" id="edit-modal">
         <div class="modal__content">
           <button type="button" class="modal__close-btn">
@@ -123,7 +122,6 @@
         </div>
       </div>
 
-      <!-- Add Card Modal -->
       <div class="modal" id="add-card-modal">
         <div class="modal__content">
           <button type="button" class="modal__close-btn">
@@ -168,7 +166,6 @@
         </div>
       </div>
 
-      <!-- Preview Modal -->
       <div class="modal" id="preview-modal">
         <div class="modal__content modal__content_type_preview">
           <button
@@ -187,7 +184,6 @@
         </div>
       </div>
 
-      <!-- Avatar Modal -->
       <div class="modal" id="avatar-modal">
         <div class="modal__content">
           <button type="button" class="modal__close-btn">
@@ -216,6 +212,7 @@
         </div>
       </div>
     </div>
+
     <div class="modal" id="delete-modal">
       <div class="modal__content">
         <button aria-label="Close modal" class="modal__close-btn" type="button">
@@ -225,11 +222,14 @@
             class="modal__close-icon"
           />
         </button>
-        <h3 class="modal__title">Are you sure?</h3>
+        <h3 class="modal__title">
+          Are you sure you want to delete this image?
+        </h3>
         <form class="modal__form" id="delete-form">
-          <button type="submit" class="modal__submit-btn modal__button">
-            Yes
-          </button>
+          <div class="modal__button-group">
+            <button type="submit" class="modal__button-delete">Delete</button>
+            <button type="button" class="modal__button-cancel">Cancel</button>
+          </div>
         </form>
       </div>
     </div>
