@@ -49,8 +49,9 @@ const avatarSubmitBtn = avatarForm.querySelector(".modal__submit-btn");
 
 const deleteModal = document.querySelector("#delete-modal");
 const deleteForm = deleteModal.querySelector("#delete-form");
-const deleteSubmitBtn = deleteForm.querySelector(".modal__submit-btn");
-const cancelBtn = document.querySelector(".modal__cancel-btn");
+const deleteSubmitBtn = deleteForm.querySelector(".modal__button-delete");
+const cancelBtn = deleteForm.querySelector(".modal__button-cancel");
+
 cancelBtn.addEventListener("click", () => closeModal(deleteModal));
 
 Promise.all([api.getUserInfo(), api.getInitialCards()])
@@ -87,9 +88,7 @@ function getCardElement(data) {
     const isLiked = cardLikeBtn.classList.contains("card__like-button_liked");
     api
       .changeLikeStatus(data._id, isLiked)
-      .then(() => {
-        cardLikeBtn.classList.toggle("card__like-button_liked");
-      })
+      .then(() => cardLikeBtn.classList.toggle("card__like-button_liked"))
       .catch(console.error);
   });
 
@@ -119,7 +118,9 @@ function handleDeleteSubmit(evt) {
       closeModal(deleteModal);
     })
     .catch(console.error)
-    .finally(() => setButtonText(deleteSubmitBtn, false, "Deleting...", "Yes"));
+    .finally(() =>
+      setButtonText(deleteSubmitBtn, false, "Deleting...", "Delete")
+    );
 }
 
 function handleAvatarSubmit(evt) {
@@ -161,13 +162,12 @@ profileEditButton.addEventListener("click", () => {
 
 editFormElement.addEventListener("submit", (evt) => {
   evt.preventDefault();
-  const userData = {
-    name: editModalNameInput.value,
-    about: editModalDescriptionInput.value,
-  };
   setButtonText(editSubmitBtn, true);
   api
-    .editUserInfo(userData)
+    .editUserInfo({
+      name: editModalNameInput.value,
+      about: editModalDescriptionInput.value,
+    })
     .then((data) => {
       profileName.textContent = data.name;
       profileDescription.textContent = data.about;
@@ -181,13 +181,12 @@ cardEditButton.addEventListener("click", () => openModal(cardModal));
 
 cardForm.addEventListener("submit", (evt) => {
   evt.preventDefault();
-  const cardData = {
-    name: cardnameInput.value,
-    link: cardlinkInput.value,
-  };
   setButtonText(cardSubmitBtn, true);
   api
-    .addCard(cardData)
+    .addCard({
+      name: cardnameInput.value,
+      link: cardlinkInput.value,
+    })
     .then((newCard) => {
       const card = getCardElement(newCard);
       cardList.prepend(card);
