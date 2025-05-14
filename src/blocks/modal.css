@@ -69,7 +69,6 @@
   top: 32px;
   right: 50px;
 
-  opacity: 40%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -78,10 +77,60 @@
   cursor: pointer;
 }
 
+.modal__button-group {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 32px;
+}
+
+.modal__button-delete {
+  width: 156px;
+  padding: 18px 32px;
+  background-color: #ff6565;
+  color: #fff;
+  font-family: Poppins, Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 1;
+  font-weight: 500;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.modal__button-delete:hover {
+  background-color: #ff3333;
+}
+
+.modal__button-cancel {
+  width: 156px;
+  padding: 18px 32px;
+  background-color: #ffffff;
+  color: #212121;
+  font-family: Poppins, Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 1;
+  font-weight: 500;
+  border: 1px solid #212121;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.modal__button-cancel:hover {
+  opacity: 0.8;
+}
+
 .modal__close-btn_type_preview {
-  background-image: url(../images/modal-close-icon.svg);
-  top: 0;
-  right: -52.5px;
+  background-image: url(../images/WhiteClose.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  top: 1px;
+  right: -40px;
+  display: block;
+  opacity: 1;
+  width: 32px;
+  height: 32px;
 }
 
 .modal__close-btn:hover {
@@ -132,12 +181,10 @@
 
 .modal__input_type_error {
   border: 1px solid rgba(255, 0, 0, 0.6);
-  /* style this class hover isnt listed */
 }
 
 .modal__error {
   display: block;
-  /* correct color and font sizes */
   color: red;
 }
 
@@ -154,7 +201,7 @@
   width: 156px;
   padding: 18px 0;
   background-color: #212121;
-  color: #fcf5e5;
+  color: #fff;
   font-family: Poppins, Arial, Helvetica, sans-serif;
   font-size: 16px;
   line-height: 16px;
@@ -210,8 +257,17 @@
     margin-bottom: 24px;
   }
 
-  .modal__submit-btn {
+  .modal__submit-btn,
+  .modal__button-delete,
+  .modal__button-cancel {
     width: 100%;
+    padding: 18px;
+    font-size: 16px;
+  }
+
+  .modal__button-group {
+    flex-direction: column;
+    gap: 12px;
   }
 
   .modal__close-btn_type_preview {
