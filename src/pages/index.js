@@ -221,7 +221,7 @@ closeButtons.forEach((button) => {
 enableValidation({
   formSelector: ".modal__form",
   inputSelector: ".modal__input",
-  submitButtonSelector: ".modal__submit-btn",
+  submitButtonSelector: ".modal__submit-btn, .modal__button-delete", // Updated selector
   inactiveButtonClass: "modal__submit-btn_disabled",
   inputErrorClass: "modal__input_type_error",
   errorClass: "modal__error_visible",

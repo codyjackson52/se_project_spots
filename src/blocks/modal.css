@@ -69,7 +69,6 @@
   top: 32px;
   right: 50px;
 
-  opacity: 40%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -122,9 +121,16 @@
 }
 
 .modal__close-btn_type_preview {
-  background-image: url(../images/modal-close-icon.svg);
-  top: 0;
-  right: -52.5px;
+  background-image: url(../images/WhiteClose.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  top: 1px;
+  right: -40px;
+  display: block;
+  opacity: 1;
+  width: 32px;
+  height: 32px;
 }
 
 .modal__close-btn:hover {
